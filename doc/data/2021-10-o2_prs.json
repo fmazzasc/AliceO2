@@ -1,0 +1,3403 @@
+{
+  "repository": {
+    "pullRequests": {
+      "edges": [
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-16T00:03:56Z",
+            "title": "Fix for entropy encoder buffer overflow",
+            "number": 7325,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "DataFormats/Detectors/Common/include/DetectorsCommonDataFormats/EncodedBlocks.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/CTF/workflow/src/CTFWriterSpec.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-16T12:34:24Z",
+            "title": "Add standalone EMC cell-writer (for debugging)",
+            "number": 7326,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/EMCAL/workflow/CMakeLists.txt"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/EMCAL/workflow/src/cell-writer-workflow.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "CLOSED",
+            "mergedAt": null,
+            "title": "Update README.md",
+            "number": 7327,
+            "author": {
+              "login": "ktf"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Framework/README.md"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-16T12:28:21Z",
+            "title": "Fix in MatchGlobalFwd: check ROF validity",
+            "number": 7328,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/GlobalTracking/src/MatchGlobalFwd.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-16T12:33:44Z",
+            "title": "Decrease verbosity of FV0 reconstruction",
+            "number": 7329,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/FIT/FV0/reconstruction/src/BaseRecoTask.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-16T22:38:39Z",
+            "title": "Optionally pass to any EntropyEncoders memory alloc.margin factor",
+            "number": 7330,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "DataFormats/Detectors/Common/include/DetectorsCommonDataFormats/EncodedBlocks.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/Base/include/DetectorsBase/CTFCoderBase.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/CPV/reconstruction/include/CPVReconstruction/CTFCoder.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/CPV/workflow/src/EntropyEncoderSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/CTP/reconstruction/include/CTPReconstruction/CTFCoder.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/CTP/workflow/src/EntropyEncoderSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/EMCAL/reconstruction/include/EMCALReconstruction/CTFCoder.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/EMCAL/workflow/src/EntropyEncoderSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/FIT/FDD/reconstruction/include/FDDReconstruction/CTFCoder.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/FIT/FDD/workflow/src/EntropyEncoderSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/FIT/FT0/reconstruction/include/FT0Reconstruction/CTFCoder.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/FIT/FT0/workflow/src/EntropyEncoderSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/FIT/FV0/reconstruction/include/FV0Reconstruction/CTFCoder.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/FIT/FV0/workflow/src/EntropyEncoderSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/HMPID/reconstruction/include/HMPIDReconstruction/CTFCoder.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/HMPID/workflow/src/EntropyEncoderSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/ITSMFT/common/reconstruction/include/ITSMFTReconstruction/CTFCoder.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/ITSMFT/common/workflow/src/EntropyEncoderSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/MUON/MCH/CTF/include/MCHCTF/CTFCoder.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/MUON/MID/CTF/include/MIDCTF/CTFCoder.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/MUON/MID/Workflow/src/EntropyEncoderSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/PHOS/reconstruction/include/PHOSReconstruction/CTFCoder.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/PHOS/workflow/src/EntropyEncoderSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TOF/reconstruction/include/TOFReconstruction/CTFCoder.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TOF/workflow/src/EntropyEncoderSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TPC/reconstruction/include/TPCReconstruction/CTFCoder.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TPC/workflow/src/EntropyEncoderSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TRD/reconstruction/include/TRDReconstruction/CTFCoder.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TRD/workflow/src/EntropyEncoderSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/ZDC/reconstruction/include/ZDCReconstruction/CTFCoder.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/ZDC/workflow/src/EntropyEncoderSpec.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-16T20:49:39Z",
+            "title": "Prepend MCH local config and debug options by mch- to avoid conflict",
+            "number": 7331,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/MUON/MCH/Calibration/src/pedestal-decoding-workflow.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/MUON/MCH/Workflow/src/ClusterFinderOriginalSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/MUON/MCH/Workflow/src/DataDecoderSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/MUON/MCH/Workflow/src/TimeClusterFinderSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/MUON/MCH/Workflow/src/TrackFinderOriginalSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/MUON/MCH/Workflow/src/TrackFinderSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/MUON/Workflow/src/TrackMatcherSpec.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-17T17:31:39Z",
+            "title": "Add EMC, PHS and CPV reconstruction to sim_challenge",
+            "number": 7332,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "prodtests/sim_challenge.sh"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-20T08:34:13Z",
+            "title": "Configurable parameters for the cooked tracker",
+            "number": 7333,
+            "author": {
+              "login": "iouribelikov"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/ITSMFT/ITS/reconstruction/CMakeLists.txt"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/ITSMFT/ITS/reconstruction/include/ITSReconstruction/CookedConfigParam.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/ITSMFT/ITS/reconstruction/include/ITSReconstruction/CookedTracker.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/ITSMFT/ITS/reconstruction/src/CookedConfigParam.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/ITSMFT/ITS/reconstruction/src/CookedTrackerLinkDef.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/ITSMFT/ITS/workflow/include/ITSWorkflow/CookedTrackerSpec.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/ITSMFT/ITS/workflow/src/CookedTrackerSpec.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-17T11:36:51Z",
+            "title": "Suppress message appearing in the workflow definition",
+            "number": 7334,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Common/Utils/src/ConfigurableParam.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-17T15:24:21Z",
+            "title": "Fix: eliminate ambiguous InputSpec binding in RecoContainer",
+            "number": 7335,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "DataFormats/Detectors/GlobalTracking/src/RecoContainer.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-17T21:16:46Z",
+            "title": "Proper treatment of ITS-TPC afterburner ITS tracklets in ED",
+            "number": 7336,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "EventVisualisation/Workflow/src/EveWorkflowHelper.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-18T09:46:53Z",
+            "title": "Optionally ignore BC check in TPC-ITS macthing",
+            "number": 7337,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/GlobalTracking/include/GlobalTracking/MatchTPCITS.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/GlobalTracking/src/MatchTPCITS.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/GlobalTrackingWorkflow/src/TPCITSMatchingSpec.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-18T08:11:30Z",
+            "title": "DPL GUI: make some progress towards remote gui integration",
+            "number": 7338,
+            "author": {
+              "login": "ktf"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/DeviceMetricsHelper.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/DPLWebSocket.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/DeviceMetricsHelper.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/DriverServerContext.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/GuiCallbackContext.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/runDataProcessing.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-18T09:32:10Z",
+            "title": "o2-eve refactoring",
+            "number": 7339,
+            "author": {
+              "login": "jmyrcha"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "EventVisualisation/Base/CMakeLists.txt"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Base/include/EventVisualisationBase/DataInterpreter.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Base/include/EventVisualisationBase/DataReader.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Base/include/EventVisualisationBase/DataSource.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Base/include/EventVisualisationBase/DataSourceOffline.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Base/include/EventVisualisationBase/DataSourceOnline.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Base/include/EventVisualisationBase/GeometryManager.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Base/src/DataInterpreter.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Base/src/DataReader.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Base/src/DataSourceOffline.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Base/src/DataSourceOnline.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Base/src/FileWatcher.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Base/src/GeometryManager.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/DataConverter/include/EventVisualisationDataConverter/VisualisationCluster.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/DataConverter/include/EventVisualisationDataConverter/VisualisationConstants.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/DataConverter/include/EventVisualisationDataConverter/VisualisationEvent.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/DataConverter/include/EventVisualisationDataConverter/VisualisationTrack.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/DataConverter/src/VisualisationCluster.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/DataConverter/src/VisualisationEvent.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/DataConverter/src/VisualisationTrack.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Detectors/include/EventVisualisationDetectors/DataReaderJSON.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Detectors/src/DataReaderJSON.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Scripts/geom/simple_geom_ITS.txt"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Scripts/geom/simple_geom_MCH.txt"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Scripts/geom/simple_geom_MFT.txt"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Scripts/geom/simple_geom_MID.txt"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Scripts/geom/simple_geom_TOF.txt"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Scripts/geom/simple_geom_TPC.txt"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Scripts/geom/simple_geom_TRD.txt"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/View/CMakeLists.txt"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/View/include/EventVisualisationView/EventManager.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/View/include/EventVisualisationView/EventManagerFrame.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/View/src/EventManager.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/View/src/EventManagerFrame.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/View/src/Initializer.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/View/src/MultiView.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/View/src/Options.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/View/src/main.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Workflow/README.md"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/o2eve_config"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-18T16:28:06Z",
+            "title": "Utility macros for CTF manipulations",
+            "number": 7340,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "DataFormats/Detectors/Common/include/DetectorsCommonDataFormats/DetID.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "DataFormats/Detectors/Common/include/DetectorsCommonDataFormats/EncodedBlocks.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "DataFormats/Detectors/Common/src/DetID.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/CTF/CMakeLists.txt"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/CTF/utils/CMakeLists.txt"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/CTF/utils/dumpCTF.C"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/CTF/utils/extractCTF.C"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-18T10:14:11Z",
+            "title": "ctf-reader can inject only selected CTF IDs from input (multi-ctf) files",
+            "number": 7341,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/CTF/README.md"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/CTF/workflow/include/CTFWorkflow/CTFReaderSpec.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/CTF/workflow/src/CTFReaderSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/CTF/workflow/src/ctf-reader-workflow.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-18T12:14:26Z",
+            "title": "Invert logic for HGLGmerge option",
+            "number": 7342,
+            "author": {
+              "login": "davidrohr"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/EMCAL/workflow/src/RawToCellConverterSpec.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "OPEN",
+            "mergedAt": null,
+            "title": "Add ZDC table to the AOD producer",
+            "number": 7343,
+            "author": {
+              "login": "nburmaso"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/AOD/CMakeLists.txt"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/AOD/include/AODProducerWorkflow/AODProducerWorkflowSpec.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/AOD/src/AODProducerWorkflowSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/AOD/src/aod-producer-workflow.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-18T13:27:34Z",
+            "title": "Flag for background particles",
+            "number": 7344,
+            "author": {
+              "login": "jgrosseo"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/AnalysisDataModel.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/DataTypes.h"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-18T19:52:33Z",
+            "title": "Revert \"[EMCAL-728] Reduce verbosity of the error logging\"",
+            "number": 7345,
+            "author": {
+              "login": "mfasDa"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/EMCAL/reconstruction/src/AltroDecoder.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/EMCAL/workflow/include/EMCALWorkflow/RawToCellConverterSpec.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/EMCAL/workflow/src/RawToCellConverterSpec.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-18T15:39:09Z",
+            "title": "Assign MCCollID -1 for PVs with undefined labels [O2-2631]",
+            "number": 7346,
+            "author": {
+              "login": "benedikt-voelkel"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/AOD/src/AODProducerWorkflowSpec.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-18T20:54:05Z",
+            "title": "DPL: minor fixes propaedeutic for Remote GUI",
+            "number": 7347,
+            "author": {
+              "login": "ktf"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Framework/Core/src/DPLWebSocket.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/DriverServerContext.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/runDataProcessing.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-19T05:10:23Z",
+            "title": "Improving DPL benchmark ExternalFairMQDeviceProxies",
+            "number": 7348,
+            "author": {
+              "login": "matthiasrichter"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Framework/Core/test/benchmark_ExternalFairMQDeviceProxies.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-18T21:27:28Z",
+            "title": "DPL: baby-steps towards reporting timeframes consumed",
+            "number": 7349,
+            "author": {
+              "login": "ktf"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/AnalysisHelpers.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/CallbackService.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/CompletionPolicy.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/CompletionPolicyHelpers.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/DataProcessingStats.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/CommonDataProcessors.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/CommonServices.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/CompletionPolicy.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/CompletionPolicyHelpers.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/DataProcessingDevice.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/DataRelayer.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/HistogramRegistry.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/WorkflowHelpers.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/runDataProcessing.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-19T06:46:24Z",
+            "title": "dynamic column for vertex from T0",
+            "number": 7350,
+            "author": {
+              "login": "jgrosseo"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/AnalysisDataModel.h"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-21T11:45:24Z",
+            "title": "Proposal to attach track statistics in MCHeader",
+            "number": 7351,
+            "author": {
+              "login": "sawenzel"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "run/O2HitMerger.h"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-18T21:45:58Z",
+            "title": "DPL: make frameworkId independent from actual DDS extra information",
+            "number": 7352,
+            "author": {
+              "login": "ktf"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Framework/Core/src/runDataProcessing.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-18T14:49:44Z",
+            "title": "Guarantee order of PWG items in Data Model menu",
+            "number": 7353,
+            "author": {
+              "login": "pbuehler"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "scripts/datamodel-doc/ALICEO2includeFile.py"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "OPEN",
+            "mergedAt": null,
+            "title": "[WIP][EMCAL-728] Error handler for cached error logging",
+            "number": 7354,
+            "author": {
+              "login": "mfasDa"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/EMCAL/reconstruction/CMakeLists.txt"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/EMCAL/reconstruction/include/EMCALReconstruction/RawErrorHandler.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/EMCAL/reconstruction/src/RawErrorHandler.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/EMCAL/workflow/include/EMCALWorkflow/RawToCellConverterSpec.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/EMCAL/workflow/src/RawToCellConverterSpec.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "OPEN",
+            "mergedAt": null,
+            "title": "[EMCAL-507] Setting default files for objects handled by ROOTTreeReader",
+            "number": 7355,
+            "author": {
+              "login": "mfasDa"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/EMCAL/workflow/include/EMCALWorkflow/PublisherSpec.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/EMCAL/workflow/src/PublisherSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/EMCAL/workflow/src/RecoWorkflow.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-19T12:07:37Z",
+            "title": "FST: fix EMCAL warnings, and sync O2DataProcessing",
+            "number": 7356,
+            "author": {
+              "login": "davidrohr"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "prodtests/full-system-test/dpl-workflow.sh"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "prodtests/full-system-test/start_tmux.sh"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-18T22:14:54Z",
+            "title": "DPL Analysis: fix bug in soa::Table::sliceBy(), add a test",
+            "number": 7357,
+            "author": {
+              "login": "aalkin"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Framework/Core/src/ASoA.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/test/test_ASoA.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-19T18:33:29Z",
+            "title": "[FV0] Enable data sampling - to be used for calibration",
+            "number": 7358,
+            "author": {
+              "login": "mslupeck"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/FIT/FV0/calibration/workflow/FV0TFProcessor-Workflow.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-19T18:22:47Z",
+            "title": "DPL: provide unique DDS id as --id when running with --dds",
+            "number": 7359,
+            "author": {
+              "login": "ktf"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Framework/Core/src/DDSConfigHelpers.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/test/test_FrameworkDataFlowToDDS.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-19T17:36:27Z",
+            "title": "CPV: fix in pedestal calibration",
+            "number": 7360,
+            "author": {
+              "login": "sevdokim"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/CPV/base/include/CPVBase/CPVSimParams.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/CPV/calib/CMakeLists.txt"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/CPV/calib/include/CPVCalibration/PedestalCalibrator.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/CPV/calib/macros/readPedEfficienciesFromCCDB.C"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/CPV/calib/macros/readPedestalsFromCCDB.C"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/CPV/calib/macros/readThresholdsFEEFromCCDB.C"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/CPV/calib/src/PedestalCalibrator.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/CPV/calib/testWorkflow/PedestalCalibratorSpec.h"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "OPEN",
+            "mergedAt": null,
+            "title": "Metric thinning",
+            "number": 7361,
+            "author": {
+              "login": "ktf"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/DataProcessingDevice.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/DeviceMetricsHelper.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/DeviceMetricsInfo.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/CommonDataProcessors.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/CompletionPolicy.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/DDSConfigHelpers.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/DataProcessingDevice.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/DeviceMetricsHelper.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/ResourcesMonitoringHelper.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/WorkflowHelpers.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/test/test_FrameworkDataFlowToDDS.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/GUISupport/src/FrameworkGUIDebugger.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-22T20:38:54Z",
+            "title": "TPC QC: update PID task, add cuts",
+            "number": 7362,
+            "author": {
+              "login": "stheckel"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/TPC/qc/src/PID.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-19T22:16:17Z",
+            "title": "DPL: add metric for shm memory usage",
+            "number": 7363,
+            "author": {
+              "login": "ktf"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/DataProcessingStats.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/RunningWorkflowInfo.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/CommonServices.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/runDataProcessing.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-20T14:00:15Z",
+            "title": "DPL: set run number in start rather than in init",
+            "number": 7364,
+            "author": {
+              "login": "ktf"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Framework/Core/src/CommonServices.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-21T12:40:46Z",
+            "title": "First prototype (working) of TOF start time computation",
+            "number": 7365,
+            "author": {
+              "login": "noferini"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/TOF/prototyping/CMakeLists.txt"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TOF/prototyping/macroEvTime.C"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TOF/reconstruction/include/TOFReconstruction/EventTimeMaker.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TOF/reconstruction/src/EventTimeMaker.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TOF/reconstruction/src/TOFReconstructionLinkDef.h"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-20T08:29:38Z",
+            "title": "[EMCAL-612] Add option to disable decoding errors in cell writer",
+            "number": 7366,
+            "author": {
+              "login": "mfasDa"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/EMCAL/workflow/include/EMCALWorkflow/RecoWorkflow.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/EMCAL/workflow/src/RecoWorkflow.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/EMCAL/workflow/src/emc-reco-workflow.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-20T09:01:21Z",
+            "title": "Fix C/A beam assignment (0,1) and P2 offsets",
+            "number": 7367,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Common/Constants/include/CommonConstants/LHCConstants.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "DataFormats/common/include/CommonDataFormat/BunchFilling.h"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-19T22:14:45Z",
+            "title": "Fix memory leak in FST",
+            "number": 7368,
+            "author": {
+              "login": "davidrohr"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "prodtests/full-system-test/dpl-workflow.sh"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-19T22:49:41Z",
+            "title": "Fix typo in AOD MCLabels (beam protons problem)",
+            "number": 7369,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/AOD/src/AODProducerWorkflowSpec.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-20T09:29:09Z",
+            "title": "Fix DataDescription for diagnostic calib",
+            "number": 7370,
+            "author": {
+              "login": "chiarazampolli"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/TOF/calibration/testWorkflow/DataGeneratorSpec.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TOF/calibration/testWorkflow/TOFDiagnosticCalibratorSpec.h"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-21T07:56:49Z",
+            "title": "Making const what should be const in the DPL RawDeviceService API",
+            "number": 7371,
+            "author": {
+              "login": "matthiasrichter"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/RawDeviceService.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/SimpleRawDeviceService.h"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "OPEN",
+            "mergedAt": null,
+            "title": "DPL: use @ as default IPC path on linux",
+            "number": 7372,
+            "author": {
+              "login": "ktf"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Framework/Core/src/WorkflowCustomizationHelpers.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "CLOSED",
+            "mergedAt": null,
+            "title": "DPL: add Task::stop",
+            "number": 7373,
+            "author": {
+              "login": "ktf"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/Task.h"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-20T19:55:47Z",
+            "title": "add to ctf-writer stop() with same functionality as EoS()",
+            "number": 7374,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/CTF/workflow/src/CTFReaderSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/CTF/workflow/src/CTFWriterSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/Task.h"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-20T11:56:02Z",
+            "title": "fix default name in the BC pattern gen. macro",
+            "number": 7375,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "macro/CreateBCPattern.C"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-21T07:56:06Z",
+            "title": "Adding unit test for variable payload sequence data format",
+            "number": 7376,
+            "author": {
+              "login": "matthiasrichter"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Framework/Core/CMakeLists.txt"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/test/test_VariablePayloadSequenceWorkflow.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-21T14:29:07Z",
+            "title": "[QC-667] Add detector to logging in merger",
+            "number": 7377,
+            "author": {
+              "login": "Barthelemy"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Utilities/Mergers/include/Mergers/MergerConfig.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Utilities/Mergers/src/FullHistoryMerger.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Utilities/Mergers/src/IntegratingMerger.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Utilities/Mergers/src/MergerBuilder.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-22T08:06:22Z",
+            "title": "DPL Analysis: Generic grouping",
+            "number": 7378,
+            "author": {
+              "login": "aalkin"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/ASoA.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/AnalysisTask.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/Kernels.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/test/test_AnalysisTask.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/test/test_GroupSlicer.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "OPEN",
+            "mergedAt": null,
+            "title": "TRD fix non zerosuppressed data and sending qc messages",
+            "number": 7379,
+            "author": {
+              "login": "bazinski"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "DataFormats/Detectors/TRD/include/DataFormatsTRD/RawDataStats.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TRD/reconstruction/include/TRDReconstruction/CruRawReader.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TRD/reconstruction/include/TRDReconstruction/DigitsParser.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TRD/reconstruction/include/TRDReconstruction/EventRecord.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TRD/reconstruction/include/TRDReconstruction/TrackletsParser.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TRD/reconstruction/src/CruRawReader.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TRD/reconstruction/src/DataReader.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TRD/reconstruction/src/DataReaderTask.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TRD/reconstruction/src/DigitsParser.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TRD/reconstruction/src/EventRecord.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TRD/reconstruction/src/TrackletsParser.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-21T07:39:14Z",
+            "title": "Make MID DataDescriptions pattern uniform with that of MCH",
+            "number": 7380,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "DataFormats/Detectors/GlobalTracking/src/RecoContainer.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/MUON/MID/Workflow/src/TrackReaderSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/MUON/MID/Workflow/src/TrackerMCSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/MUON/MID/Workflow/src/TrackerSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/MUON/MID/Workflow/src/reco-workflow.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/MUON/Workflow/README.md"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/MUON/Workflow/src/TrackMatcherSpec.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-20T22:40:52Z",
+            "title": "FileFetcher will open TGrid connection if data from alien involved",
+            "number": 7381,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Common/Utils/src/FileFetcher.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-21T11:41:19Z",
+            "title": "Add MID to createTracksVariadic + fixes",
+            "number": 7382,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "DataFormats/Detectors/GlobalTracking/include/DataFormatsGlobalTracking/RecoContainerCreateTracksVariadic.h"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-22T07:04:26Z",
+            "title": "Use Lifetime::QA for sampled quantities",
+            "number": 7383,
+            "author": {
+              "login": "ktf"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Utilities/DataSampling/src/DataSamplingPolicy.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Utilities/DataSampling/test/test_DataSampling.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Utilities/DataSampling/test/test_DataSamplingPolicy.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-21T12:14:14Z",
+            "title": "DPL: add fairmq out of band channels",
+            "number": 7384,
+            "author": {
+              "login": "ktf"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/DeviceState.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/InputRoute.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/Lifetime.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/LifetimeHelpers.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/DataProcessingDevice.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/DeviceSpecHelpers.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/DeviceSpecHelpers.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/LifetimeHelpers.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/WorkflowHelpers.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-21T20:01:49Z",
+            "title": "CPV: do not stop clusterizer when 0 digits recieved",
+            "number": 7385,
+            "author": {
+              "login": "sevdokim"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/CPV/workflow/include/CPVWorkflow/RawToDigitConverterSpec.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/CPV/workflow/src/ClusterizerSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/CPV/workflow/src/RawToDigitConverterSpec.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-21T07:53:57Z",
+            "title": "FST / helper script updates",
+            "number": 7386,
+            "author": {
+              "login": "davidrohr"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "prodtests/full-system-test/convert-raw-to-tf-file.sh"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "prodtests/full-system-test/dpl-workflow.sh"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-23T00:34:47Z",
+            "title": "o2-eve-display: added TRD, TOF, MID to the workflow",
+            "number": 7387,
+            "author": {
+              "login": "jmyrcha"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "EventVisualisation/DataConverter/include/EventVisualisationDataConverter/VisualisationEvent.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/DataConverter/src/VisualisationEvent.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Workflow/include/EveWorkflow/EveWorkflowHelper.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Workflow/include/EveWorkflow/O2DPLDisplay.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Workflow/src/EveWorkflowHelper.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Workflow/src/O2DPLDisplay.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-21T13:14:09Z",
+            "title": "DPL: do not dump metrics which are empty",
+            "number": 7388,
+            "author": {
+              "login": "ktf"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Framework/Core/src/ResourcesMonitoringHelper.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-21T19:58:02Z",
+            "title": "Allow for TEfficiency merging",
+            "number": 7389,
+            "author": {
+              "login": "njacazio"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Utilities/Mergers/src/MergerAlgorithm.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-21T21:09:20Z",
+            "title": "o2-eve: screenshot",
+            "number": 7390,
+            "author": {
+              "login": "jmyrcha"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "EventVisualisation/View/include/EventVisualisationView/EventManagerFrame.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/View/src/EventManagerFrame.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-22T20:12:52Z",
+            "title": "Protection from zero payload",
+            "number": 7391,
+            "author": {
+              "login": "peressounko"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/PHOS/base/src/RCUTrailer.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/PHOS/calib/include/PHOSCalibWorkflow/PHOSEnergyCalibDevice.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/PHOS/calib/include/PHOSCalibWorkflow/PHOSEnergyCalibrator.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/PHOS/calib/src/PHOSEnergyCalibDevice.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/PHOS/calib/src/PHOSEnergyCalibrator.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/PHOS/calib/src/PHOSHGLGRatioCalibDevice.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/PHOS/calib/src/PHOSRunbyrunCalibrator.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/PHOS/calib/src/PHOSTurnonCalibrator.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/PHOS/calib/src/phos-calib-workflow.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/PHOS/reconstruction/include/PHOSReconstruction/RawBuffer.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/PHOS/reconstruction/include/PHOSReconstruction/RawReaderMemory.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/PHOS/reconstruction/src/AltroDecoder.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/PHOS/reconstruction/src/RawBuffer.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/PHOS/reconstruction/src/RawReaderMemory.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/PHOS/workflow/src/RawToCellConverterSpec.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-21T15:04:20Z",
+            "title": "Include PWG code in name of executable",
+            "number": 7392,
+            "author": {
+              "login": "pbuehler"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "scripts/datamodel-doc/ALICEO2includeFile.py"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "scripts/datamodel-doc/inputCard.xml"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-21T19:41:39Z",
+            "title": "DPL: provide metric for rate in and out of each channel",
+            "number": 7393,
+            "author": {
+              "login": "ktf"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/DataProcessingStats.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/CommonServices.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "OPEN",
+            "mergedAt": null,
+            "title": "TPC: add dvCorrection to LaserTrack QC",
+            "number": 7394,
+            "author": {
+              "login": "tklemenz"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/TPC/base/src/Painter.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "OPEN",
+            "mergedAt": null,
+            "title": "[WIP][EMCAL-681] Implement pileup simulation for pre-trigger bunches",
+            "number": 7395,
+            "author": {
+              "login": "hahassan7"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/EMCAL/simulation/include/EMCALSimulation/Digitizer.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/EMCAL/simulation/src/Digitizer.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/EMCAL/simulation/src/DigitsWriteoutBuffer.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/EMCAL/workflow/src/EMCALDigitizerSpec.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-23T00:35:29Z",
+            "title": "o2-eve: adding maximum allowed memory option",
+            "number": 7396,
+            "author": {
+              "login": "jmyrcha"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "EventVisualisation/View/include/EventVisualisationView/EventManagerFrame.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/View/include/EventVisualisationView/Options.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/View/src/EventManagerFrame.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/View/src/Options.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-22T10:02:40Z",
+            "title": "Handling of corrupted root files in CTFReader",
+            "number": 7397,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Common/Utils/src/FileFetcher.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/CTF/workflow/src/CTFReaderSpec.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-25T18:57:54Z",
+            "title": "[MFT] Workaround for MFT tracking with misaligned detector",
+            "number": 7398,
+            "author": {
+              "login": "rpezzi"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/ITSMFT/MFT/tracking/include/MFTTracking/MFTTrackingParam.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/ITSMFT/MFT/tracking/src/Tracker.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/ITSMFT/MFT/workflow/src/TrackerSpec.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-25T16:29:21Z",
+            "title": "Embedding: combine associated signal and background MC collisions",
+            "number": 7399,
+            "author": {
+              "login": "nburmaso"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/AOD/include/AODProducerWorkflow/AODProducerWorkflowSpec.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/AOD/src/AODProducerWorkflowSpec.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-22T14:01:38Z",
+            "title": "DPL: introduce Lifetime::Sporadic as alias to Lifetime::QA",
+            "number": 7400,
+            "author": {
+              "login": "ktf"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Framework/Core/include/Framework/Lifetime.h"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-23T11:02:56Z",
+            "title": "fixed typo in reco",
+            "number": 7401,
+            "author": {
+              "login": "AllaMaevskaya"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/FIT/FT0/base/files/Sim2DataChannels.txt"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/FIT/FT0/reconstruction/src/CollisionTimeRecoTask.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/FIT/FV0/reconstruction/src/BaseRecoTask.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-22T15:32:32Z",
+            "title": "DPL: handle the case where shm is fully used",
+            "number": 7402,
+            "author": {
+              "login": "aalkin"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Framework/Core/src/ComputingQuotaEvaluator.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-23T21:10:26Z",
+            "title": "fix in TOF diagnostic words",
+            "number": 7403,
+            "author": {
+              "login": "noferini"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "DataFormats/Detectors/TOF/include/DataFormatsTOF/Diagnostic.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "DataFormats/Detectors/TOF/src/Diagnostic.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TOF/base/src/WindowFiller.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TOF/workflowIO/include/TOFWorkflowIO/DigitReaderSpec.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TOF/workflowIO/src/DigitReaderSpec.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "OPEN",
+            "mergedAt": null,
+            "title": "Improved argument substitution in defines",
+            "number": 7404,
+            "author": {
+              "login": "pbuehler"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "scripts/datamodel-doc/ALICEO2dataModelTools.py"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "CLOSED",
+            "mergedAt": null,
+            "title": "DPL: an offer with 0 shared memory can be marked invalid immediately",
+            "number": 7405,
+            "author": {
+              "login": "ktf"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Framework/Core/src/ComputingQuotaEvaluator.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "OPEN",
+            "mergedAt": null,
+            "title": "SpaceCharge: Adding distortions and time bin information to debug tree",
+            "number": 7406,
+            "author": {
+              "login": "matthias-kleiner"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/TPC/spacecharge/include/TPCSpaceCharge/SpaceCharge.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TPC/spacecharge/macro/createSCHistosFromHits.C"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TPC/spacecharge/src/SpaceCharge.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-22T19:22:50Z",
+            "title": "Fix: AbstractRefAccessor::isLoaded must check type size",
+            "number": 7407,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "DataFormats/common/include/CommonDataFormat/AbstractRefAccessor.h"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-23T11:03:34Z",
+            "title": "[FIT] Fix in calibration: int8_t->int16_t",
+            "number": 7408,
+            "author": {
+              "login": "sbysiak"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/FIT/FT0/calibration/include/FT0Calibration/FT0CalibrationInfoObject.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/FIT/FV0/calibration/include/FV0Calibration/FV0CalibrationInfoObject.h"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-22T23:30:29Z",
+            "title": "DPL: demote debug message",
+            "number": 7409,
+            "author": {
+              "login": "ktf"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Framework/Core/src/LifetimeHelpers.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-23T09:28:29Z",
+            "title": "TPC clusters visualization fixes in EveWorkflowHelper",
+            "number": 7410,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "EventVisualisation/Workflow/include/EveWorkflow/EveWorkflowHelper.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Workflow/src/EveWorkflowHelper.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-23T15:40:53Z",
+            "title": "DPL: miscellaneous fixes propaedeutic for rate limiting",
+            "number": 7411,
+            "author": {
+              "login": "ktf"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Framework/Core/src/ResourcesMonitoringHelper.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/TopologyPolicy.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/runDataProcessing.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-23T10:03:52Z",
+            "title": "Fix in errors summary reporting formatting",
+            "number": 7412,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/ITSMFT/common/reconstruction/src/DecodingStat.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-23T20:54:48Z",
+            "title": "ITS-TPC matching: add tolerance parameter on constrained TPC track time",
+            "number": 7413,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/GlobalTracking/include/GlobalTracking/MatchTPCITSParams.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/GlobalTracking/src/MatchTPCITS.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-25T23:12:18Z",
+            "title": "Misaligned sync reco parameters",
+            "number": 7414,
+            "author": {
+              "login": "mpuccio"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/ITSMFT/ITS/workflow/src/TrackerSpec.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "OPEN",
+            "mergedAt": null,
+            "title": "Make geometry loadable from the CCDB",
+            "number": 7415,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "CCDB/src/CcdbApi.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "DataFormats/Detectors/Common/include/DetectorsCommonDataFormats/NameConf.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/Base/include/DetectorsBase/GeometryManager.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/Base/src/GeometryManager.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/MUON/MCH/Geometry/Transformer/src/convert-geometry.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TOF/prototyping/CMakeLists.txt"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TOF/prototyping/checkRotation.C"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Steer/src/O2MCApplication.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "OPEN",
+            "mergedAt": null,
+            "title": "FIT: add time-calibration command line option",
+            "number": 7416,
+            "author": {
+              "login": "HimanshuCERN"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/FIT/FT0/calibration/include/FT0Calibration/FT0ChannelTimeTimeSlotContainer.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/FIT/FT0/calibration/src/FT0ChannelTimeTimeSlotContainer.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/FIT/FT0/calibration/testWorkflow/FT0ChannelTimeCalibration-Workflow.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/FIT/FT0/calibration/testWorkflow/FT0TFProcessor-Workflow.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/FIT/FV0/calibration/include/FV0Calibration/FV0ChannelTimeTimeSlotContainer.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/FIT/FV0/calibration/src/FV0ChannelTimeTimeSlotContainer.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/FIT/FV0/calibration/workflow/FV0ChannelTimeCalibration-Workflow.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-26T06:24:59Z",
+            "title": "Increase TPC FirstHistInBin buffer side, forward --shm-allocation command line option, add pass-through mode",
+            "number": 7417,
+            "author": {
+              "login": "davidrohr"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/TPC/workflow/include/TPCWorkflow/RecoWorkflow.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TPC/workflow/src/RecoWorkflow.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/TPC/workflow/src/tpc-reco-workflow.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/src/DeviceSpecHelpers.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/test/test_FrameworkDataFlowToDDS.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Framework/Core/test/test_FrameworkDataFlowToO2Control.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "GPU/GPUTracking/SliceTracker/GPUTPCSliceData.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "GPU/Workflow/src/gpu-reco-workflow.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "OPEN",
+            "mergedAt": null,
+            "title": "o2-eve-display track<-> cluster relation",
+            "number": 7418,
+            "author": {
+              "login": "jmyrcha"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "EventVisualisation/Base/src/DataSourceOnline.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/DataConverter/include/EventVisualisationDataConverter/VisualisationCluster.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/DataConverter/include/EventVisualisationDataConverter/VisualisationEvent.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/DataConverter/include/EventVisualisationDataConverter/VisualisationTrack.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/DataConverter/src/VisualisationTrack.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/View/src/EventManager.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/View/src/main.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Workflow/include/EveWorkflow/EveWorkflowHelper.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Workflow/include/EveWorkflow/O2DPLDisplay.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "EventVisualisation/Workflow/src/EveWorkflowHelper.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "OPEN",
+            "mergedAt": null,
+            "title": "remove unnecessary --geometry option of MID tracker",
+            "number": 7419,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/MUON/MID/Workflow/src/TrackerMCSpec.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/MUON/MID/Workflow/src/TrackerSpec.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "OPEN",
+            "mergedAt": null,
+            "title": "Methods to constrain track by vertex",
+            "number": 7420,
+            "author": {
+              "login": "shahor02"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "DataFormats/Reconstruction/include/ReconstructionDataFormats/TrackParametrization.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "DataFormats/Reconstruction/include/ReconstructionDataFormats/TrackParametrizationWithError.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "DataFormats/Reconstruction/src/TrackParametrization.cxx"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "DataFormats/Reconstruction/src/TrackParametrizationWithError.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "OPEN",
+            "mergedAt": null,
+            "title": "Adding some plots + use labels to avoid duplicated tracks",
+            "number": 7421,
+            "author": {
+              "login": "chiarazampolli"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "Detectors/GlobalTracking/include/GlobalTracking/MatchITSTPCQC.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/GlobalTracking/src/MatchITSTPCQC.cxx"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-26T06:26:43Z",
+            "title": "GPU: Fix code that was not respecting strict aliasing rules",
+            "number": 7422,
+            "author": {
+              "login": "davidrohr"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "GPU/GPUTracking/Base/GPUProcessor.h"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "MERGED",
+            "mergedAt": "2021-10-26T06:26:55Z",
+            "title": "Sync from O2DataProcessing + minor updates",
+            "number": 7423,
+            "author": {
+              "login": "davidrohr"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "prodtests/full-system-test/dpl-workflow.sh"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "state": "OPEN",
+            "mergedAt": null,
+            "title": "CPV: fix in cluster to ctf packing",
+            "number": 7424,
+            "author": {
+              "login": "sevdokim"
+            },
+            "files": {
+              "edges": [
+                {
+                  "node": {
+                    "path": "DataFormats/Detectors/CPV/include/DataFormatsCPV/Cluster.h"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/CPV/calib/CMakeLists.txt"
+                  }
+                },
+                {
+                  "node": {
+                    "path": "Detectors/CPV/calib/macros/makeBadMapFromPedestalRun.C"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}
