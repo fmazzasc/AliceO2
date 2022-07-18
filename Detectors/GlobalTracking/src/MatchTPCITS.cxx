@@ -1788,11 +1788,11 @@ int MatchTPCITS::followABSeed(const o2::track::TrackParCov& seed, const ITSChipC
   const auto& lr = mRGHelper.layers[lrID];
   auto seedC = seed;
   if (!seedC.getXatLabR(lr.rRange.getMax(), xTgt, propagator->getNominalBz(), o2::track::DirInward) ||
-      !propagator->propagateToX(seedC, xTgt, true, MaxSnp, 2., mUseMatCorrFlag)) { // Bz-propagation only in ITS
+!propagator->propagateToX(seedC, xTgt, propagator->getNominalBz(), MaxSnp, 2., mUseMatCorrFlag)) { // Bz-propagation only in ITS
     return -1;
   }
   float zDRStep = -seedC.getTgl() * lr.rRange.delta(); // approximate Z span when going from layer rMin to rMax
-  float errZ = std::sqrt(seedC.getSigmaZ2());
+  float errZ = std::sqrt(seedC.getSigmaZ2() + mParams->err2ABExtraZ);
   if (lr.zRange.isOutside(seedC.getZ(), mParams->nABSigmaZ * errZ + std::abs(zDRStep))) {
     return 0;
   }
