@@ -42,27 +42,49 @@ bool StrangenessTracker::loadData(const o2::globaltracking::RecoContainer& recoD
     mITSvtxBrackets[i] = {-1, -1};
   }
 
-  // build time bracket for each ITS track
+  // build time bracket for each ITS and kink tracks
+
   auto trackIndex = recoData.getPrimaryVertexMatchedTracks(); // Global ID's for associated tracks
   auto vtxRefs = recoData.getPrimaryVertexMatchedTrackRefs(); // references from vertex to these track IDs
 
-  if (mStrParams->mVertexMatching) {
-    int nv = vtxRefs.size();
-    for (int iv = 0; iv < nv; iv++) {
-      const auto& vtref = vtxRefs[iv];
-      int it = vtref.getFirstEntry(), itLim = it + vtref.getEntries();
-      for (; it < itLim; it++) {
-        auto tvid = trackIndex[it];
-        if (!recoData.isTrackSourceLoaded(tvid.getSource()) || tvid.getSource() != GIndex::ITS) {
-          continue;
-        }
+  std::unordered_map<GIndex, int> kinkMap;
+
+  int nv = vtxRefs.size();
+  for (int iv = 0; iv < nv; iv++) {
+    const auto& vtref = vtxRefs[iv];
+    int it = vtref.getFirstEntry(), itLim = it + vtref.getEntries();
+    for (; it < itLim; it++) {
+      auto tvid = trackIndex[it];
+      if (!recoData.isTrackSourceLoaded(tvid.getSource()))
+        continue;
+
+      if (tvid.getSource() == GIndex::ITS) {
+
         if (mITSvtxBrackets[tvid.getIndex()].getMin() == -1) {
           mITSvtxBrackets[tvid.getIndex()].setMin(iv);
           mITSvtxBrackets[tvid.getIndex()].setMax(iv);
         } else {
           mITSvtxBrackets[tvid.getIndex()].setMax(iv);
         }
+        continue;
       }
+
+      if (!mStrParams->mKinkFinder || tvid.getSource() != GIndex::TPC) { // exclude TPC only tracks for the time being
+        continue;
+      }
+
+      if (tvid.isAmbiguous()) {
+
+        if (kinkMap.find(tvid) != kinkMap.end()) {  // track already in the map, update the time bracket
+          mKinkBrackets[kinkMap[tvid]].setMax(iv);
+          continue;
+        }
+      }
+
+      mKinkTracks.push_back(recoData.getTrackParam(tvid));
+      mKinkBrackets.push_back({iv, iv});
+      mKinkTrackIdxs.push_back(tvid);
+      kinkMap[tvid] = mKinkTracks.size() - 1;
     }
   }
 
@@ -85,7 +107,7 @@ void StrangenessTracker::prepareITStracks() // sort tracks by eta and phi and se
 {
 
   for (int iTrack{0}; iTrack < mInputITStracks.size(); iTrack++) {
-    if (mStrParams->mVertexMatching && mITSvtxBrackets[iTrack].getMin() == -1) {
+    if (mITSvtxBrackets[iTrack].getMin() == -1) {
       continue;
     }
     mSortedITStracks.push_back(mInputITStracks[iTrack]);
@@ -135,8 +157,7 @@ void StrangenessTracker::process()
         mITStrack = mSortedITStracks[iTrack];
         auto& ITSindexRef = mSortedITSindexes[iTrack];
         LOG(debug) << "V0 pos: " << v0.getProngID(0) << " V0 neg: " << v0.getProngID(1) << ", ITS track ref: " << mSortedITSindexes[iTrack];
-        if (mStrParams->mVertexMatching && (mITSvtxBrackets[ITSindexRef].getMin() > v0.getVertexID() ||
-                                            mITSvtxBrackets[ITSindexRef].getMax() < v0.getVertexID())) {
+        if (mITSvtxBrackets[ITSindexRef].getMin() > v0.getVertexID() || mITSvtxBrackets[ITSindexRef].getMax() < v0.getVertexID()) {
           continue;
         }
 
@@ -199,8 +220,7 @@ void StrangenessTracker::process()
         LOG(debug) << "----------------------";
         LOG(debug) << "CascV0: " << casc.getV0ID() << ", Bach ID: " << casc.getBachelorID() << ", ITS track ref: " << mSortedITSindexes[iTrack];
 
-        if (mStrParams->mVertexMatching && (mITSvtxBrackets[ITSindexRef].getMin() > casc.getVertexID() ||
-                                            mITSvtxBrackets[ITSindexRef].getMax() < casc.getVertexID())) {
+        if (mITSvtxBrackets[ITSindexRef].getMin() > casc.getVertexID() || mITSvtxBrackets[ITSindexRef].getMax() < casc.getVertexID()) {
           LOG(debug) << "Vertex ID mismatch: " << mITSvtxBrackets[ITSindexRef].getMin() << " < " << casc.getVertexID() << " < " << mITSvtxBrackets[ITSindexRef].getMax();
           continue;
         }

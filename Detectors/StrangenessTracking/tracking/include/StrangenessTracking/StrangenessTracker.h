@@ -243,6 +243,10 @@ class StrangenessTracker
   std::vector<int> mSortedITSindexes;              // indexes of sorted ITS tracks
   IndexTableUtils mUtils;                          // structure for computing eta/phi matching selections
 
+  std::vector<o2::track::TrackParCovF> mKinkTracks; // kink tracks
+  std::vector<GIndex> mKinkTrackIdxs;                // indexes of kink tracks
+  std::vector<VBracket> mKinkBrackets;              // time brackets for kink tracks
+
   std::vector<StrangeTrack> mStrangeTrackVec;       // structure containing updated mother and daughter tracks
   std::vector<ClusAttachments> mClusAttachments;    // # of attached tracks, -1 not attached, 0 for the mother, > 0 for the daughters
   std::vector<o2::MCCompLabel> mStrangeTrackLabels; // vector of MC labels for mother track
