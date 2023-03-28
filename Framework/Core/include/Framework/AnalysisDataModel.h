@@ -880,7 +880,6 @@ DECLARE_SOA_COLUMN(He4Lmass, he4Lmass, float);         //! He4L mass
 DECLARE_SOA_COLUMN(MatchingChi2, matchingChi2, float); //! Matching Chi2
 DECLARE_SOA_COLUMN(TopologyChi2, topologyChi2, float); //! Topology Chi2
 DECLARE_SOA_COLUMN(ITSclsSize, itsClsSize, float);     //! Average ITS cluster size
-
 } // namespace strangenesstracking
 
 /// Strangeness tracks
