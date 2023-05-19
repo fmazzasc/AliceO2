@@ -53,7 +53,7 @@ namespace o2d = o2::dataformats;
 class SecondaryVertexingSpec : public Task
 {
  public:
-  SecondaryVertexingSpec(std::shared_ptr<DataRequest> dr, std::shared_ptr<o2::base::GRPGeomRequest> gr, bool enabCasc, bool enable3body) : mDataRequest(dr), mGGCCDBRequest(gr), mEnableCascades(enabCasc), mEnable3BodyVertices(enable3body) {}
+  SecondaryVertexingSpec(std::shared_ptr<DataRequest> dr, std::shared_ptr<o2::base::GRPGeomRequest> gr, bool enabCasc, bool enable3body, bool excludeTPCtracks) : mDataRequest(dr), mGGCCDBRequest(gr), mEnableCascades(enabCasc), mEnable3BodyVertices(enable3body), mExcludeTPC{excludeTPCtracks} {}
   ~SecondaryVertexingSpec() override = default;
   void init(InitContext& ic) final;
   void run(ProcessingContext& pc) final;
@@ -68,6 +68,7 @@ class SecondaryVertexingSpec : public Task
   o2::tpc::CorrectionMapsLoader mTPCCorrMapsLoader{};
   bool mEnableCascades = false;
   bool mEnable3BodyVertices = false;
+  bool mExcludeTPC = false;
   o2::vertexing::SVertexer mVertexer;
   TStopwatch mTimer;
 };
@@ -80,6 +81,7 @@ void SecondaryVertexingSpec::init(InitContext& ic)
   //-------- init geometry and field --------//
   mVertexer.setEnableCascades(mEnableCascades);
   mVertexer.setEnable3BodyDecays(mEnable3BodyVertices);
+  mVertexer.setExcludeTPCtracks(mExcludeTPC);
   mVertexer.setNThreads(ic.options().get<int>("threads"));
   mTPCCorrMapsLoader.init(ic);
 }
@@ -161,7 +163,7 @@ void SecondaryVertexingSpec::updateTimeDependentParams(ProcessingContext& pc)
   }
 }
 
-DataProcessorSpec getSecondaryVertexingSpec(GTrackID::mask_t src, bool enableCasc, bool enable3body)
+DataProcessorSpec getSecondaryVertexingSpec(GTrackID::mask_t src, bool enableCasc, bool enable3body, bool excludeTPCtracks)
 {
   std::vector<OutputSpec> outputs;
   Options opts{
@@ -194,7 +196,7 @@ DataProcessorSpec getSecondaryVertexingSpec(GTrackID::mask_t src, bool enableCas
     "secondary-vertexing",
     dataRequest->inputs,
     outputs,
-    AlgorithmSpec{adaptFromTask<SecondaryVertexingSpec>(dataRequest, ggRequest, enableCasc, enable3body)},
+    AlgorithmSpec{adaptFromTask<SecondaryVertexingSpec>(dataRequest, ggRequest, enableCasc, enable3body, excludeTPCtracks)},
     opts};
 }
 

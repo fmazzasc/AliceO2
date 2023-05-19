@@ -79,13 +79,18 @@ WorkflowSpec defineDataProcessing(ConfigContext const& configcontext)
   auto requireCTPLumi = configcontext.options().get<bool>("require-ctp-lumi");
 
   GID::mask_t src = allowedSources & GID::getSourcesMask(configcontext.options().get<std::string>("vertexing-sources"));
+
+  // don't loop over TPC tracks if not needed, but load them anyway for dEdX evaluation
+  bool excludeTPCtracks = !(src & GID::getSourceMask(GID::TPC)).any();
+  src = src | GID::getSourceMask(GID::TPC);
+
   GID::mask_t dummy, srcClus = GID::includesDet(DetID::TOF, src) ? GID::getSourceMask(GID::TOF) : dummy; // eventually, TPC clusters will be needed for refit
   if (requireCTPLumi) {
     src = src | GID::getSourcesMask("CTP");
   }
   WorkflowSpec specs;
 
-  specs.emplace_back(o2::vertexing::getSecondaryVertexingSpec(src, enableCasc, enable3body));
+  specs.emplace_back(o2::vertexing::getSecondaryVertexingSpec(src, enableCasc, enable3body, excludeTPCtracks));
 
   // only TOF clusters are needed if TOF is involved, no clusters MC needed
   WorkflowSpec inputspecs;
