@@ -80,7 +80,7 @@ WorkflowSpec defineDataProcessing(ConfigContext const& configcontext)
 
   GID::mask_t src = allowedSources & GID::getSourcesMask(configcontext.options().get<std::string>("vertexing-sources"));
 
-  // don't loop over TPC tracks if not needed, but load them anyway for dEdX evaluation
+  // don't loop over TPC tracks if not needed, but load them anyway for dEdx evaluation
   bool excludeTPCtracks = !(src & GID::getSourceMask(GID::TPC)).any();
   src = src | GID::getSourceMask(GID::TPC);
 

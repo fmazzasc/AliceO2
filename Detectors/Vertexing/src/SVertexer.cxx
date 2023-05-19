@@ -351,18 +351,18 @@ void SVertexer::buildT2V(const o2::globaltracking::RecoContainer& recoData) // a
       }
       const auto& trc = recoData.getTrackParam(tvid);
 
-      bool heavyIonisingParticle = false;
+      bool ionisingTrack = false;
       auto tpcGID = recoData.getTPCContributorGID(tvid);
       if (tpcGID.isIndexSet()) {
         auto& tpcTrack = recoData.getTPCTrack(tpcGID);
         float dEdxTPC = tpcTrack.getdEdx().dEdxTotTPC;
         if (dEdxTPC > mSVParams->minTPCdEdx && trc.getP() > mSVParams->minMomTPCdEdx) // accept high dEdx tracks (He3, He4)
         {
-          heavyIonisingParticle = true;
+          ionisingTrack = true;
         }
       }
 
-      if (!acceptTrack(tvid, trc) && !heavyIonisingParticle) {
+      if (!acceptTrack(tvid, trc) && !ionisingTrack) {
         if (tvid.isAmbiguous()) {
           rejmap[tvid] = true;
         }
