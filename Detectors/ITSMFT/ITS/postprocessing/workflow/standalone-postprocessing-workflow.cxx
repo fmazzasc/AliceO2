@@ -21,6 +21,7 @@
 #include "ITSStudies/ImpactParameter.h"
 #include "ITSStudies/AvgClusSize.h"
 #include "ITSStudies/PIDStudy.h"
+#include "ITSStudies/AnomalyStudy.h"
 #include "ITSStudies/TrackCheck.h"
 #include "Steer/MCKinematicsReader.h"
 
@@ -38,6 +39,7 @@ void customize(std::vector<ConfigParamSpec>& workflowOptions)
 {
   // option allowing to set parameters
   std::vector<o2::framework::ConfigParamSpec> options{
+    {"input-from-upstream", VariantType::Bool, false, {"read clusters from the clusterer"}},
     {"track-sources", VariantType::String, std::string{"ITS,ITS-TPC-TRD-TOF,ITS-TPC-TOF,ITS-TPC,ITS-TPC-TRD"}, {"comma-separated list of track sources to use"}},
     {"cluster-sources", VariantType::String, std::string{"ITS"}, {"comma-separated list of cluster sources to use"}},
     {"disable-root-input", VariantType::Bool, false, {"disable root-files input reader"}},
@@ -46,6 +48,7 @@ void customize(std::vector<ConfigParamSpec>& workflowOptions)
     {"pid-study", VariantType::Bool, false, {"Perform the PID study"}},
     {"track-study", VariantType::Bool, false, {"Perform the track study"}},
     {"impact-parameter-study", VariantType::Bool, false, {"Perform the impact parameter study"}},
+    {"anomaly-study", VariantType::Bool, false, {"Perform the anomaly study"}},
     {"configKeyValues", VariantType::String, "", {"Semicolon separated key=value strings ..."}}};
   o2::raw::HBFUtilsInitializer::addConfigOption(options, "o2_tfidinfo.root");
   std::swap(workflowOptions, options);
@@ -92,6 +95,10 @@ WorkflowSpec defineDataProcessing(ConfigContext const& configcontext)
   if (configcontext.options().get<bool>("track-study")) {
     anyStudy = true;
     specs.emplace_back(o2::its::study::getTrackCheckStudy(GID::getSourcesMask("ITS"), GID::getSourcesMask("ITS"), useMC, mcKinematicsReader));
+  }
+  if (configcontext.options().get<bool>("anomaly-study")) {
+    anyStudy = true;
+    specs.emplace_back(o2::its::study::getAnomalyStudy(srcCls, useMC));
   }
   if (!anyStudy) {
     LOGP(info, "No study selected, dryrunning");
