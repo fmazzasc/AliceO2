@@ -9,7 +9,7 @@
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
 
-#include "ITSStudies/ClusDistribution.h"
+#include "ITSStudies/AnomalyStudy.h"
 #include "ITSStudies/ITSStudiesConfigParam.h"
 #include "ITSBase/GeometryTGeo.h"
 
@@ -36,8 +36,8 @@ class AnomalyStudy : public Task
 
  public:
   AnomalyStudy(std::shared_ptr<DataRequest> dr,
-                        std::shared_ptr<o2::base::GRPGeomRequest> gr,
-                        bool isMC) : mDataRequest{dr}, mGGCCDBRequest(gr), mUseMC(isMC) {}
+               std::shared_ptr<o2::base::GRPGeomRequest> gr,
+               bool isMC) : mDataRequest{dr}, mGGCCDBRequest(gr), mUseMC(isMC) {}
   void init(InitContext& ic) final;
   void run(ProcessingContext&) final;
   void endOfStream(EndOfStreamContext&) final;
@@ -95,7 +95,7 @@ void AnomalyStudy::run(ProcessingContext& pc)
 
 void AnomalyStudy::endOfStream(EndOfStreamContext&)
 {
-  TFile* f = TFile::Open(o2::its::study::ITSClusDistributionParamConfig::Instance().outFileName.c_str(), "recreate");
+  TFile* f = TFile::Open(o2::its::study::AnomalyStudyParamConfig::Instance().outFileName.c_str(), "recreate");
   mNClusDistHist->Write();
 
   // Write chip maps
@@ -149,8 +149,6 @@ void AnomalyStudy::process(o2::globaltracking::RecoContainer& recoData)
       const auto& clus = clustersInRof[clusInd];
       mChipMapping.expandChipInfoHW(clus.getChipID(), lay, sta, ssta, mod, chipInMod);
       LOG(info) << "Cluster in layer " << lay << " stave " << sta << " sub-stave " << ssta << " module " << mod << " chip " << chipInMod;
-      
-
 
       // if (!lay) { // Inner barrel
       //   auto col = clus.getCol();
@@ -248,7 +246,7 @@ DataProcessorSpec getAnomalyStudy(mask_t srcClustersMask, bool useMC)
                                                               dataRequest->inputs,
                                                               true);
   return DataProcessorSpec{
-    "its-cluster-dist-study",
+    "its-anomaly-study",
     dataRequest->inputs,
     outputs,
     AlgorithmSpec{adaptFromTask<AnomalyStudy>(dataRequest, ggRequest, useMC)},
