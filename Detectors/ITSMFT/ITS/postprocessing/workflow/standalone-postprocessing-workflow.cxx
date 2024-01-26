@@ -59,45 +59,60 @@ void customize(std::vector<ConfigParamSpec>& workflowOptions)
 WorkflowSpec defineDataProcessing(ConfigContext const& configcontext)
 {
   WorkflowSpec specs;
-  GID::mask_t allowedSourcesTrc = GID::getSourcesMask("ITS,TPC,ITS-TPC-TRD-TOF,ITS-TPC-TOF,ITS-TPC,ITS-TPC-TRD");
-  GID::mask_t allowedSourcesClus = GID::getSourcesMask("ITS");
+  GID::mask_t srcTrc, srcCls;
 
-  // Update the (declared) parameters if changed from the command line
   o2::conf::ConfigurableParam::updateFromString(configcontext.options().get<std::string>("configKeyValues"));
   auto useMC = !configcontext.options().get<bool>("disable-mc");
-  GID::mask_t srcTrc = allowedSourcesTrc & GID::getSourcesMask(configcontext.options().get<std::string>("track-sources"));
-  // srcTrc |= GID::getSourcesMask("ITS"); // guarantee that we will at least use ITS tracks
-  GID::mask_t srcCls = allowedSourcesClus & GID::getSourcesMask(configcontext.options().get<std::string>("cluster-sources"));
-
-  o2::globaltracking::InputHelper::addInputSpecs(configcontext, specs, srcCls, srcTrc, srcTrc, useMC, srcCls, srcTrc);
-  // o2::globaltracking::InputHelper::addInputSpecsPVertex(configcontext, specs, useMC);
-  // o2::globaltracking::InputHelper::addInputSpecsSVertex(configcontext, specs);
 
   std::shared_ptr<o2::steer::MCKinematicsReader> mcKinematicsReader;
   if (useMC) {
     mcKinematicsReader = std::make_shared<o2::steer::MCKinematicsReader>("collisioncontext.root");
   }
-
   bool anyStudy{false};
   // Declare specs related to studies hereafter
   if (configcontext.options().get<bool>("impact-parameter-study")) {
     anyStudy = true;
+    srcTrc = GID::getSourcesMask(configcontext.options().get<std::string>("track-sources"));
+    srcCls = GID::getSourcesMask(configcontext.options().get<std::string>("cluster-sources"));
+    o2::globaltracking::InputHelper::addInputSpecs(configcontext, specs, srcCls, srcTrc, srcTrc, useMC, srcCls, srcTrc);
+    // o2::globaltracking::InputHelper::addInputSpecsPVertex(configcontext, specs, useMC);
+    // o2::globaltracking::InputHelper::addInputSpecsSVertex(configcontext, specs);
     specs.emplace_back(o2::its::study::getImpactParameterStudy(srcTrc, srcCls, useMC));
   }
   if (configcontext.options().get<bool>("cluster-size-study")) {
     anyStudy = true;
+    srcTrc = GID::getSourcesMask(configcontext.options().get<std::string>("track-sources"));
+    srcCls = GID::getSourcesMask(configcontext.options().get<std::string>("cluster-sources"));
+    o2::globaltracking::InputHelper::addInputSpecs(configcontext, specs, srcCls, srcTrc, srcTrc, useMC, srcCls, srcTrc);
+    // o2::globaltracking::InputHelper::addInputSpecsPVertex(configcontext, specs, useMC);
+    // o2::globaltracking::InputHelper::addInputSpecsSVertex(configcontext, specs);
     specs.emplace_back(o2::its::study::getAvgClusSizeStudy(srcTrc, srcCls, useMC, mcKinematicsReader));
   }
   if (configcontext.options().get<bool>("pid-study")) {
     anyStudy = true;
+    srcTrc = GID::getSourcesMask(configcontext.options().get<std::string>("track-sources"));
+    srcCls = GID::getSourcesMask(configcontext.options().get<std::string>("cluster-sources"));
+    o2::globaltracking::InputHelper::addInputSpecs(configcontext, specs, srcCls, srcTrc, srcTrc, useMC, srcCls, srcTrc);
+    // o2::globaltracking::InputHelper::addInputSpecsPVertex(configcontext, specs, useMC);
+    // o2::globaltracking::InputHelper::addInputSpecsSVertex(configcontext, specs);
     specs.emplace_back(o2::its::study::getPIDStudy(srcTrc, srcCls, useMC, mcKinematicsReader));
   }
   if (configcontext.options().get<bool>("track-study")) {
     anyStudy = true;
+    srcTrc = GID::getSourcesMask(configcontext.options().get<std::string>("track-sources"));
+    srcCls = GID::getSourcesMask(configcontext.options().get<std::string>("cluster-sources"));
+    o2::globaltracking::InputHelper::addInputSpecs(configcontext, specs, srcCls, srcTrc, srcTrc, useMC, srcCls, srcTrc);
     specs.emplace_back(o2::its::study::getTrackCheckStudy(GID::getSourcesMask("ITS"), GID::getSourcesMask("ITS"), useMC, mcKinematicsReader));
+    // o2::globaltracking::InputHelper::addInputSpecsPVertex(configcontext, specs, useMC);
+    // o2::globaltracking::InputHelper::addInputSpecsSVertex(configcontext, specs);
   }
   if (configcontext.options().get<bool>("anomaly-study")) {
     anyStudy = true;
+    // srcTrc = GID::getSourcesMask(configcontext.options().get<std::string>("track-sources"));
+    srcCls = GID::getSourcesMask(configcontext.options().get<std::string>("cluster-sources"));
+    o2::globaltracking::InputHelper::addInputSpecs(configcontext, specs, srcCls, srcTrc, srcTrc, useMC, srcCls, srcTrc);
+    // o2::globaltracking::InputHelper::addInputSpecsPVertex(configcontext, specs, useMC);
+    // o2::globaltracking::InputHelper::addInputSpecsSVertex(configcontext, specs);
     specs.emplace_back(o2::its::study::getAnomalyStudy(srcCls, useMC));
   }
   if (!anyStudy) {
