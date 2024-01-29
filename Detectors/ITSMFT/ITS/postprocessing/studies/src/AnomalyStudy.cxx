@@ -20,7 +20,7 @@
 #include "DataFormatsParameters/GRPObject.h"
 #include "DataFormatsGlobalTracking/RecoContainer.h"
 
-#include <TH2D.h>
+#include <TH2F.h>
 #include <TCanvas.h>
 
 namespace o2::its::study
@@ -52,7 +52,6 @@ class AnomalyStudy : public Task
  private:
   bool mUseMC;
   int mTFCount{0};
-  const int mNumberOfStaves[7] = {12, 16, 20, 24, 30, 42, 48};
   std::shared_ptr<o2::base::GRPGeomRequest> mGGCCDBRequest;
   std::shared_ptr<DataRequest> mDataRequest;
   const o2::itsmft::TopologyDictionary* mDict = nullptr;
@@ -64,7 +63,7 @@ class AnomalyStudy : public Task
   o2::itsmft::ChipMappingITS mChipMapping;
 
   // Histos
-  std::vector<std::unique_ptr<TH2D>> mTFvsPhiHist;
+  std::vector<std::unique_ptr<TH2F>> mTFvsPhiHist;
 };
 
 void AnomalyStudy::updateTimeDependentParams(ProcessingContext& pc)
@@ -84,8 +83,9 @@ void AnomalyStudy::init(InitContext& ic)
   prepareOutput();
   int count{0};
   mTFvsPhiHist.resize(7);
+  auto nTF = o2::its::study::AnomalyStudyParamConfig::Instance().nTimeFramesOffset;
   for (auto& hist : mTFvsPhiHist) {
-    hist.reset(new TH2D(Form("tf_phi_layer_%d", count), Form("tf_phi_layer_%d", count), mNumberOfStaves[count] * 10, -TMath::Pi(), TMath::Pi(), 100, 0.5, 100.5));
+    hist.reset(new TH2F(Form("tf_phi_layer_%d", count), Form("tf_phi_layer_%d", count), 150, -TMath::Pi(), TMath::Pi(), nTF, 0.5, nTF + 0.5));
     count++;
   }
   LOGP(info, "Initialized {} TFvsPhi histos", mTFvsPhiHist.size());
@@ -149,6 +149,9 @@ void AnomalyStudy::process(o2::globaltracking::RecoContainer& recoData)
       // LOG(info) << "Cluster in layer " << locClus.getLayer() << " stave " << locClus.getStave() << " sub-stave " << locClus.getSubStave() << " module " << locClus.getModule() << " chip " << locClus.getChipID();
       // LOGP(info, "Filling {} layer with phi {} and count {}", lay, TMath::ATan2(locClus.getY(), locClus.getX()), mTFCount);
       auto gloC = locClus.getXYZGlo(*mGeom);
+      // if (!(clusInd % 10000)) {
+      //   LOGP(info, "Filling {} layer with phi {} and count {}", lay, TMath::ATan2(gloC.Y(), gloC.X()), mTFCount);
+      // }
       mTFvsPhiHist[lay]->Fill(TMath::ATan2(gloC.Y(), gloC.X()), mTFCount);
       // if (!lay) { // Inner barrel
       //   auto col = clus.getCol();
@@ -196,7 +199,7 @@ void AnomalyStudy::prepareOutput()
   //   lHists.resize(nChipStavesIB * nStavesIB[lCount]);
   //   int cID{0};
   //   for (auto& cHist : lHists) {
-  //     cHist = std::make_unique<TH2D>(Form("l%d_s%d_c%d", lCount, cID / nChipStavesIB, cID % nChipStavesIB),
+  //     cHist = std::make_unique<TH2F>(Form("l%d_s%d_c%d", lCount, cID / nChipStavesIB, cID % nChipStavesIB),
   //                                    Form("l%d_s%d_c%d", lCount, cID / nChipStavesIB, cID % nChipStavesIB),
   //                                    256, -0.5, 1023.5, 128, -0.5, 511.5);
   //     cID++;
@@ -207,7 +210,8 @@ void AnomalyStudy::prepareOutput()
 
 void AnomalyStudy::getClusterPatterns(gsl::span<const o2::itsmft::CompClusterExt>& ITSclus, gsl::span<const unsigned char>& ITSpatt, const o2::itsmft::TopologyDictionary& mdict)
 {
-  mPatterns.reserve(ITSclus.size());
+  mPatterns.clear();
+  mPatterns.resize(ITSclus.size());
   auto pattIt = ITSpatt.begin();
 
   for (unsigned int iClus{0}; iClus < ITSclus.size(); ++iClus) {
