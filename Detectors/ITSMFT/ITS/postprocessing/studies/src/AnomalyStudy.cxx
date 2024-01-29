@@ -20,7 +20,7 @@
 #include "DataFormatsParameters/GRPObject.h"
 #include "DataFormatsGlobalTracking/RecoContainer.h"
 
-#include <TH2F.h>
+#include <TH2D.h>
 #include <TCanvas.h>
 
 namespace o2::its::study
@@ -28,7 +28,7 @@ namespace o2::its::study
 using namespace o2::framework;
 using namespace o2::globaltracking;
 using GTrackID = o2::dataformats::GlobalTrackID;
-
+using ITSCluster = o2::BaseCluster<float>;
 class AnomalyStudy : public Task
 {
   static constexpr int nChipStavesIB{9};
@@ -52,6 +52,7 @@ class AnomalyStudy : public Task
  private:
   bool mUseMC;
   int mTFCount{0};
+  const int mNumberOfStaves[7] = {12, 16, 20, 24, 30, 42, 48};
   std::shared_ptr<o2::base::GRPGeomRequest> mGGCCDBRequest;
   std::shared_ptr<DataRequest> mDataRequest;
   const o2::itsmft::TopologyDictionary* mDict = nullptr;
@@ -63,8 +64,7 @@ class AnomalyStudy : public Task
   o2::itsmft::ChipMappingITS mChipMapping;
 
   // Histos
-  std::unique_ptr<TH1F> mNClusDistHist{};
-  std::vector<std::vector<std::unique_ptr<TH2F>>> mLayerChipHists;
+  std::vector<std::unique_ptr<TH2D>> mTFvsPhiHist;
 };
 
 void AnomalyStudy::updateTimeDependentParams(ProcessingContext& pc)
@@ -82,7 +82,13 @@ void AnomalyStudy::init(InitContext& ic)
 {
   o2::base::GRPGeomHelper::instance().setRequest(mGGCCDBRequest);
   prepareOutput();
-  LOGP(info, "Cluster distribution study initialized.");
+  int count{0};
+  mTFvsPhiHist.resize(7);
+  for (auto& hist : mTFvsPhiHist) {
+    hist.reset(new TH2D(Form("tf_phi_layer_%d", count), Form("tf_phi_layer_%d", count), mNumberOfStaves[count] * 10, -TMath::Pi(), TMath::Pi(), 100, 0.5, 100.5));
+    count++;
+  }
+  LOGP(info, "Initialized {} TFvsPhi histos", mTFvsPhiHist.size());
 }
 
 void AnomalyStudy::run(ProcessingContext& pc)
@@ -96,24 +102,9 @@ void AnomalyStudy::run(ProcessingContext& pc)
 void AnomalyStudy::endOfStream(EndOfStreamContext&)
 {
   TFile* f = TFile::Open(o2::its::study::AnomalyStudyParamConfig::Instance().outFileName.c_str(), "recreate");
-  mNClusDistHist->Write();
-
-  // Write chip maps
-  std::vector<TCanvas*> canvases{mLayerChipHists.size()};
-  for (auto& lHists : mLayerChipHists) {
-    for (auto& cHist : lHists) {
-      cHist->Write();
-    }
-  }
-  for (int iLayer{0}; iLayer < canvases.size(); iLayer++) {
-    canvases[iLayer] = new TCanvas(Form("l%d", iLayer), Form("l%d", iLayer), 12000, 6000);
-    canvases[iLayer]->Divide(nChipStavesIB, nStavesIB[iLayer]);
-    for (int iChip{0}; iChip < nChipStavesIB * nStavesIB[iLayer]; iChip++) {
-      canvases[iLayer]->cd(iChip + 1);
-      mLayerChipHists[iLayer][iChip]->Draw("colz");
-    }
-    canvases[iLayer]->Write();
-    canvases[iLayer]->SaveAs(Form("layer%d_map.png", iLayer));
+  // Iterate over all the histograms and write them to the file
+  for (auto& hist : mTFvsPhiHist) {
+    hist->Write();
   }
 
   f->Close();
@@ -140,16 +131,25 @@ void AnomalyStudy::process(o2::globaltracking::RecoContainer& recoData)
   auto compClus = recoData.getITSClusters();
   auto clusPatt = recoData.getITSClustersPatterns();
   getClusterPatterns(compClus, clusPatt, *mDict);
+  auto pattIt = clusPatt.begin();
+  std::vector<ITSCluster> globalClusters;
+  o2::its::ioutils::convertCompactClusters(compClus, pattIt, globalClusters, mDict);
+
   int lay, sta, ssta, mod, chipInMod;
   for (auto& rofRecord : clusRofRecords) {
-    mNClusDistHist->Fill(rofRecord.getNEntries()); // Fill counts for nclusters/rof
     auto clustersInRof = rofRecord.getROFData(compClus);
     auto patternsInRof = rofRecord.getROFData(mPatterns);
+    auto locClustersInRof = rofRecord.getROFData(globalClusters);
     for (unsigned int clusInd{0}; clusInd < clustersInRof.size(); clusInd++) {
-      const auto& clus = clustersInRof[clusInd];
-      mChipMapping.expandChipInfoHW(clus.getChipID(), lay, sta, ssta, mod, chipInMod);
-      LOG(info) << "Cluster in layer " << lay << " stave " << sta << " sub-stave " << ssta << " module " << mod << " chip " << chipInMod;
+      const auto& compClus = clustersInRof[clusInd];
+      auto& locClus = locClustersInRof[clusInd];
+      mChipMapping.expandChipInfoHW(compClus.getChipID(), lay, sta, ssta, mod, chipInMod);
 
+      // LOG(info) << "Cluster in layer " << lay << " stave " << sta << " sub-stave " << ssta << " module " << mod << " chip " << chipInMod;
+      // LOG(info) << "Cluster in layer " << locClus.getLayer() << " stave " << locClus.getStave() << " sub-stave " << locClus.getSubStave() << " module " << locClus.getModule() << " chip " << locClus.getChipID();
+      // LOGP(info, "Filling {} layer with phi {} and count {}", lay, TMath::ATan2(locClus.getY(), locClus.getX()), mTFCount);
+      auto gloC = locClus.getXYZGlo(*mGeom);
+      mTFvsPhiHist[lay]->Fill(TMath::ATan2(gloC.Y(), gloC.X()), mTFCount);
       // if (!lay) { // Inner barrel
       //   auto col = clus.getCol();
       //   auto row = clus.getRow();
@@ -189,20 +189,20 @@ void AnomalyStudy::process(o2::globaltracking::RecoContainer& recoData)
 void AnomalyStudy::prepareOutput()
 {
   // auto& params = o2::its::study::ITSClusDistributionParamConfig::Instance();
-  mNClusDistHist = std::make_unique<TH1F>("nClusDist", "Cluster distribution", 300, 0, 200e3);
-  mLayerChipHists.resize(3); // only inner barrel atm
-  int lCount{0};
-  for (auto& lHists : mLayerChipHists) {
-    lHists.resize(nChipStavesIB * nStavesIB[lCount]);
-    int cID{0};
-    for (auto& cHist : lHists) {
-      cHist = std::make_unique<TH2F>(Form("l%d_s%d_c%d", lCount, cID / nChipStavesIB, cID % nChipStavesIB),
-                                     Form("l%d_s%d_c%d", lCount, cID / nChipStavesIB, cID % nChipStavesIB),
-                                     256, -0.5, 1023.5, 128, -0.5, 511.5);
-      cID++;
-    }
-    lCount++;
-  }
+  // mNClusDistHist = std::make_unique<TH1F>("nClusDist", "Cluster distribution", 300, 0, 200e3);
+  // mLayerChipHists.resize(3); // only inner barrel atm
+  // int lCount{0};
+  // for (auto& lHists : mLayerChipHists) {
+  //   lHists.resize(nChipStavesIB * nStavesIB[lCount]);
+  //   int cID{0};
+  //   for (auto& cHist : lHists) {
+  //     cHist = std::make_unique<TH2D>(Form("l%d_s%d_c%d", lCount, cID / nChipStavesIB, cID % nChipStavesIB),
+  //                                    Form("l%d_s%d_c%d", lCount, cID / nChipStavesIB, cID % nChipStavesIB),
+  //                                    256, -0.5, 1023.5, 128, -0.5, 511.5);
+  //     cID++;
+  //   }
+  //   lCount++;
+  // }
 }
 
 void AnomalyStudy::getClusterPatterns(gsl::span<const o2::itsmft::CompClusterExt>& ITSclus, gsl::span<const unsigned char>& ITSpatt, const o2::itsmft::TopologyDictionary& mdict)
