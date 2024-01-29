@@ -65,6 +65,7 @@ class AnomalyStudy : public Task
   // Histos
   std::vector<std::unique_ptr<TH2F>> mTFvsPhiHist;
   std::vector<std::unique_ptr<TH2F>> mTFvsPhiClusSizeHist;
+  std::vector<std::unique_ptr<TH2F>> mROFvsPhiHist;
 };
 
 void AnomalyStudy::updateTimeDependentParams(ProcessingContext& pc)
@@ -82,13 +83,16 @@ void AnomalyStudy::init(InitContext& ic)
 {
   o2::base::GRPGeomHelper::instance().setRequest(mGGCCDBRequest);
   prepareOutput();
+
   mTFvsPhiHist.resize(7);
   mTFvsPhiClusSizeHist.resize(7);
   auto nTF = o2::its::study::AnomalyStudyParamConfig::Instance().nTimeFramesOffset;
   for (unsigned int i = 0; i < 7; i++) {
     mTFvsPhiHist[i].reset(new TH2F(Form("tf_phi_occup_layer_%d", i), " ; #phi ; # TF; Counts", 150, -TMath::Pi(), TMath::Pi(), nTF, 0.5, nTF+0.5));
     mTFvsPhiClusSizeHist[i].reset(new TH2F(Form("tf_phi_clsize_layer_%d", i), "; #phi; # TF ; <Cluster Size>", 150, -TMath::Pi(), TMath::Pi(), nTF, 0.5, nTF+0.5));
+    mROFvsPhiHist[i].reset(new TH2F(Form("rof_phi_layer_%d", i), Form("rof_phi_layer_%d", i), 150, -TMath::Pi(), TMath::Pi(), nTF, 0.5, nTF + 0.5));
   }
+  LOGP(info, "Initialized {} TFvsPhi histos", mTFvsPhiHist.size());
 }
 
 void AnomalyStudy::run(ProcessingContext& pc)
